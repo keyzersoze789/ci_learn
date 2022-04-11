@@ -1,15 +1,18 @@
 name: my_ci
 
 on:
-  push: 
-   branches: [ main ]
-  pull_request:
-   branches: [ main ]
+  # push: 
+  #  branches: [ main ]
+  # pull_request:
+  #  branches: [ main ]
   workflow_dispatch:
 
 jobs:
   my_Job:
-   runs-on: ubuntu-latest
+   runs-on: ${{matrix.os}}
+   strategy:
+     matrix:
+      os: [ ubuntu-latest , windows-latest ,macOS-latest ]
    steps:
      - run: echo "step -repo 1${{ github.ref }} -branch ${{ github.repository }}"
      - name: Prints name
