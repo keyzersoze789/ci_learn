@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  my_job:
+  my_Job:
    runs-on: ubuntu-latest
    steps:
      - run: echo "step -repo 1${{ github.ref }} -branch ${{ github.repository }}"
