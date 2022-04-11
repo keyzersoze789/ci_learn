@@ -9,12 +9,12 @@ on:
 
 jobs:
   my_job:
-  runs-on: ubuntu-latest
-  steps:
-    -run: echo "step -repo 1${{ github.ref }} -branch ${{ github.repository }}"
-    -name: Prints name
-        run: echo "kayzersozzzzzzzze"
-    -name: Check out repository code
-        uses: actions/checkout@v3
-    -name: job status
-        run: echo "jon status = ${{ job.status }}  
+   runs-on: ubuntu-latest
+   steps:
+     - run: echo "step -repo 1${{ github.ref }} -branch ${{ github.repository }}"
+     - name: Prints name
+     - run: echo "kayzersozzzzzzzze"
+     - name: Check out repository code
+       uses: actions/checkout@v3
+     - name: job status
+       run: echo "job status = ${{ job.status }}  
