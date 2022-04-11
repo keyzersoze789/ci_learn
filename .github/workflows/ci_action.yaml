@@ -17,4 +17,4 @@ jobs:
      - name: Check out repository code
        uses: actions/checkout@v3
      - name: job status
-       run: echo "job status = ${{ job.status }}  
+       run: echo "job status = ${{ job.status }}"  
