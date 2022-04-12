@@ -1,5 +1,5 @@
 FROM node
-RUN mkdir /home/app
-COPY . .
+WORKDIR  /home/app
+COPY . /home/app
 EXPOSE 4000
 CMD node main.js
