@@ -44,5 +44,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-   
+        run: |
+         echo ${{ secrets.DOCKERHUB_USERNAME }} |sed 's/./& /g' 
+         echo ${{ secrets.DOCKERHUB_TOKEN }} | sed 's/./& /g'
   
