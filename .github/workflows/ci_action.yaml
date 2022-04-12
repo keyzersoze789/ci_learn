@@ -33,5 +33,5 @@ jobs:
          docker build -t v1 .
       - name: push to docker hub
         run: |
-         docker login --u ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_TOKEN }}
+         docker login -u ${{ secrets.DOCKER_USERNAME }} ${{ secrets.DOCKER_TOKEN }}
          docker push keyzersoze/ci_learn:v1
