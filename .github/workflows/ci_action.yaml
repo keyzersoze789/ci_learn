@@ -33,5 +33,5 @@ jobs:
          docker build -t v1 .
       - name: push to docker hub
         run: |
-         docker login -u keyzersoze -p ab37c7db-ff46-4663-890d-fc611cee717d
+         docker login --username keyzersoze ab37c7db-ff46-4663-890d-fc611cee717d
          docker push keyzersoze/ci_learn:v1
