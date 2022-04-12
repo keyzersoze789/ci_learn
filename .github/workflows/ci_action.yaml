@@ -8,16 +8,24 @@ on:
   workflow_dispatch:
 
 jobs:
-  my_Job:
-   runs-on: ${{matrix.os}}
-   strategy:
-     matrix:
-      os: [ ubuntu-latest , windows-latest ,macOS-latest ]
+  sample_job:
+   runs-on: ubuntu-latest
+  #  strategy:
+  #    matrix:
+  #     os: [ ubuntu-latest , windows-latest ,macOS-latest ]
    steps:
-     - run: echo "step -repo 1${{ github.ref }} -branch ${{ github.repository }}"
-     - name: Prints name
-       run: echo "kayzersozzzzzzzze"
+     - name: Prints repo details
+       run: echo "step -repo 1${{ github.ref }} -branch ${{ github.repository }}"
      - name: Check out repository code
        uses: actions/checkout@v3
      - name: job status
        run: echo "job status = ${{ job.status }}"  
+  docker_push:
+     runs-on: ubuntu-latest
+     steps:
+      - name: build docker image
+        run: docker build -t v1 .
+      - name: push to docker hub
+        run: |
+         docker login -u keyzersoze -p ab37c7db-ff46-4663-890d-fc611cee717d
+         docker push keyzersoze/ci_learn:v1
