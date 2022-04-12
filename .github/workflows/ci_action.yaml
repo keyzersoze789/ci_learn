@@ -24,7 +24,11 @@ jobs:
      runs-on: ubuntu-latest
      steps:
       - name: build docker image
-        run: docker build -t v1 .
+        run: |
+        docker version
+        pwd 
+        ls
+        docker build -t v1 .
       - name: push to docker hub
         run: |
          docker login -u keyzersoze -p ab37c7db-ff46-4663-890d-fc611cee717d
