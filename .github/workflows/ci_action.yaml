@@ -82,15 +82,15 @@ jobs:
     #     bash ./build/git_update.sh -v major
     - name: Build, Tag, and Push the Image to Amazon ECR
       id: build-image
-      # env:
-      #   ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-      #   ECR_REPOSITORY: githubactions
-      #   # IMAGE_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
-      #   IMAGE_TAG: latest
-      # run: |
-      #   docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-      #   docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-      run: | 
-        docker build -t githubactions .
-        docker tag githubactions:latest 402338187344.dkr.ecr.eu-west-3.amazonaws.com/githubactions:latest
-        docker push 402338187344.dkr.ecr.eu-west-3.amazonaws.com/githubactions:latest
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        ECR_REPOSITORY: githubactions
+        # IMAGE_TAG: ${{ steps.increment-git-tag.outputs.git-tag }}
+        IMAGE_TAG: latest
+      run: |
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+      # run: | 
+      #   docker build -t githubactions .
+      #   docker tag githubactions:latest 402338187344.dkr.ecr.eu-west-3.amazonaws.com/githubactions:latest
+      #   docker push 402338187344.dkr.ecr.eu-west-3.amazonaws.com/githubactions:latest
